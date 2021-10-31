@@ -7,9 +7,16 @@ window.addEventListener("DOMContentLoaded", () => {
     function renderTodoItem(itemId, itemLabel) {
         todoList.innerHTML +=
             `<div id="${itemId}" class="todo-list__item">
-                <p>${itemLabel}</p>
-                <span>${itemId}</span>
+                <div class="todo-list__item_label">
+                    <span>${itemId}</span>
+                    <p>${itemLabel}</p>
+                </div>
                 <button type="button" id="${itemId}" class="todo-list__item_remove"></button>
+                <div class="todo-list__item_remove_controls hidden">
+                    <span>Are you sure?</span>
+                    <button type="button" class="todo-list__item_remove_confirm">Yes</button>
+                    <button type="button" class="todo-list__item_remove_cancel">No</button>
+                </div>
             </div>`;
         addRemoveItemListeners();
     };
@@ -53,15 +60,35 @@ window.addEventListener("DOMContentLoaded", () => {
 
         for (remove of [...removeItemBtn]) {
             remove.addEventListener("click", function() {
-                localStorage.removeItem(this.id);
-                this.parentElement.remove();
+                const removeControls = this.nextElementSibling;
+                const confirmBtn = this.nextElementSibling.querySelector(".todo-list__item_remove_confirm");
+                const cancelBtn = this.nextElementSibling.querySelector(".todo-list__item_remove_cancel");
+
+                confirmBtn.addEventListener("click", () => {
+                    removeItem(this.id, this.parentElement);
+                });
+
+                cancelBtn.addEventListener("click", () => {
+                    removeControls.classList.add("hidden");
+                    this.classList.remove("hidden");
+                });
+
+                removeControls.classList.remove("hidden");
+                this.classList.add("hidden");
+
+                console.log(this);
             });
+        }
+
+        function removeItem(id, item) {
+            localStorage.removeItem(id);
+            item.remove();
         }
     };
 
     function renderTodoList () {
         for (let i = 0; i < localStorage.length; i++) {
-            let id = [localStorage.key(i)].filter(item => {
+            [localStorage.key(i)].filter(item => {
                 if (item.includes("Date")) {
                     renderTodoItem(item, localStorage.getItem(item));
                 }
