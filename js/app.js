@@ -61,8 +61,8 @@ window.addEventListener("DOMContentLoaded", () => {
         for (remove of [...removeItemBtn]) {
             remove.addEventListener("click", function() {
                 const removeControls = this.nextElementSibling;
-                const confirmBtn = this.nextElementSibling.querySelector(".todo-list__item_remove_confirm");
-                const cancelBtn = this.nextElementSibling.querySelector(".todo-list__item_remove_cancel");
+                const confirmBtn = removeControls.querySelector(".todo-list__item_remove_confirm");
+                const cancelBtn = removeControls.querySelector(".todo-list__item_remove_cancel");
 
                 confirmBtn.addEventListener("click", () => {
                     removeItem(this.id, this.parentElement);
