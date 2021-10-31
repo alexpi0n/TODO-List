@@ -9,11 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
             `<div id="${itemId}" class="todo-list__item">
                 <p>${itemLabel}</p>
                 <span>${itemId}</span>
-                <button
-                    type="button"
-                    id="${itemId}"
-                    class="todo-list__item_remove">
-                </button>
+                <button type="button" id="${itemId}" class="todo-list__item_remove"></button>
             </div>`;
         addRemoveItemListeners();
     };
