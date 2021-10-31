@@ -10,6 +10,71 @@ body {
   padding: 20px;
 }
 
+.todo-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todo-header input {
+  max-width: 200px;
+  width: 100%;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #11253E;
+  border-radius: 15px;
+  -webkit-box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo-header input:focus {
+  outline: none;
+}
+
+.todo-header input::-webkit-input-placeholder {
+  color: #c4c4c4;
+}
+
+.todo-header input::-moz-placeholder {
+  color: #c4c4c4;
+}
+
+.todo-header input:-ms-input-placeholder {
+  color: #c4c4c4;
+}
+
+.todo-header input::-ms-input-placeholder {
+  color: #c4c4c4;
+}
+
+.todo-header input::placeholder {
+  color: #c4c4c4;
+}
+
+@media (max-width: 420px) {
+  .todo-header input {
+    margin: 0 0 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  .todo-header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 .todo-add {
   position: relative;
   display: -webkit-box;
@@ -108,11 +173,19 @@ body {
 
 .todo-list__item {
   display: grid;
-  grid-template-columns: 8fr 3fr 1fr;
+  grid-template-columns: 8fr 3fr 0.5fr;
   grid-column-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #FFF;
   padding: 10px;
   cursor: pointer;
+}
+
+.todo-list__item input {
+  width: 17px;
+  height: 17px;
 }
 
 .todo-list__item p {
@@ -167,4 +240,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.done {
+  text-decoration: line-through;
 }
