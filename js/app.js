@@ -1,12 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-    function renderTodoItem(itemId, itemLabel) {
-        const todoList = document.querySelector(".todo-list");
+    const addItemBtn = document.querySelector("#add");
+    const searchItem = document.querySelector("#search");
+    const todoList = document.querySelector(".todo-list");
 
+    function renderTodoItem(itemId, itemLabel) {
         todoList.innerHTML +=
             `<div id="${itemId}" class="todo-list__item">
                 <p>${itemLabel}</p>
-                <span>Date: ${itemId}</span>
+                <span>${itemId}</span>
                 <button
                     type="button"
                     id="${itemId}"
@@ -19,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function addItem() {
         data = {
             label: document.querySelector("#input"),
-            id: `${new Date().toISOString().slice(0, 10)}
+            id: `Date: ${new Date().toISOString().slice(0, 10)}
                 [ ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()} ]`,
             error: "Oh, no.. You did not enter the task name"
         };
@@ -35,8 +37,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
         label.value = "";
     };
-
-    const addItemBtn = document.querySelector("#add");
 
     addItemBtn.addEventListener("click", () => {
         addItem();
@@ -65,10 +65,27 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function renderTodoList () {
         for (let i = 0; i < localStorage.length; i++) {
-            let id = localStorage.key(i);
-
-            renderTodoItem(id, localStorage.getItem(id));
+            let id = [localStorage.key(i)].filter(item => {
+                if (item.includes("Date")) {
+                    renderTodoItem(item, localStorage.getItem(item));
+                }
+            });
         }
     };
     renderTodoList();
+
+    searchItem.addEventListener("keyup", function() {
+        const todoList = document.querySelectorAll(".todo-list__item");
+        const value = this.value.trim();
+
+        [...todoList].forEach(item => {
+            if (value.length) {
+                if (item.innerText.search(value) == -1) {
+                    item.classList.add("hidden");
+                }
+            } else {
+                item.classList.remove("hidden");
+            }
+        });
+    });
 });
