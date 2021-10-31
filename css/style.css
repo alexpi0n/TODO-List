@@ -2,6 +2,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  background: lavenderblush;
 }
 
 .todo {
@@ -172,15 +173,19 @@ body {
 }
 
 .todo-list__item {
+  position: relative;
   display: grid;
-  grid-template-columns: 8fr 3fr 0.5fr;
+  grid-template-columns: 10fr 0.5fr;
   grid-column-gap: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #FFF;
+  background: #FFF;
   padding: 10px;
-  cursor: pointer;
+  border: 1px solid #c4c4c4;
+  border-radius: 15px;
+  margin: 0 0 15px;
 }
 
 .todo-list__item input {
@@ -188,20 +193,21 @@ body {
   height: 17px;
 }
 
-.todo-list__item p {
-  margin: 0;
+.todo-list__item_label p {
+  font-size: 16px;
+  color: #11253E;
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
-  .todo-list__item p {
+  .todo-list__item_label p {
     margin: 0 0 15px;
   }
 }
 
-.todo-list__item p,
-.todo-list__item span {
-  font-size: 16px;
-  color: #11253E;
+.todo-list__item_label span {
+  font-size: 12px;
+  color: #c4c4c4;
 }
 
 .todo-list__item_remove {
@@ -214,6 +220,37 @@ body {
   justify-self: end;
   border: 0;
   cursor: pointer;
+}
+
+.todo-list__item_remove_controls {
+  position: absolute;
+  right: 0;
+  margin: 0 10px 0;
+}
+
+.todo-list__item_remove_controls span {
+  font-size: 14px;
+  color: #11253E;
+  margin: 0 5px 0;
+}
+
+.todo-list__item_remove_confirm, .todo-list__item_remove_cancel {
+  width: 45px;
+  height: 22px;
+  font-size: 14px;
+  color: #FFF;
+  border: 0;
+  border-radius: 10px;
+  margin: 0 0 0 3px;
+  cursor: pointer;
+}
+
+.todo-list__item_remove_confirm {
+  background: red;
+}
+
+.todo-list__item_remove_cancel {
+  background: blue;
 }
 
 .todo-list__item_remove:hover {
@@ -232,8 +269,6 @@ body {
 @media (max-width: 768px) {
   .todo-list__item {
     grid-template-columns: none;
-    border: 1px dashed #11253E;
-    border-radius: 15px;
     margin: 0 0 15px;
   }
 }
