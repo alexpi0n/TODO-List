@@ -75,8 +75,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
                 removeControls.classList.remove("hidden");
                 this.classList.add("hidden");
-
-                console.log(this);
             });
         }
 
