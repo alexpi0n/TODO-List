@@ -101,6 +101,9 @@ body {
     }
 
     &-list {
+        overflow-y: auto;
+        height: calc(100vh - 30vh);
+
         &__item {
             position: relative;
             display: grid;
@@ -211,6 +214,20 @@ body {
                 grid-template-columns: none;
                 margin: 0 0 15px;
             }
+        }
+
+        &::-webkit-scrollbar {
+            width: 20px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: lavenderblush;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $secondary-color;
+            border-radius: 15px;
+            border: 8px solid lavenderblush;
         }
     }
 
