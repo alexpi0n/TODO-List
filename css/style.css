@@ -24,47 +24,48 @@ body {
 }
 
 .todo-header input {
-  max-width: 200px;
+  max-width: 230px;
   width: 100%;
   height: 40px;
   padding: 0 15px;
-  border: 1px solid #11253E;
+  border: 1px solid #C4C4C4;
   border-radius: 15px;
   -webkit-box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .todo-header input:focus {
-  outline: none;
+  border: 1px solid #11253E;
+  outline: 0;
 }
 
 .todo-header input::-webkit-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-header input::-moz-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-header input:-ms-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-header input::-ms-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-header input::placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .todo-header input {
     margin: 0 0 15px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .todo-header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -87,8 +88,6 @@ body {
   height: 40px;
   margin: 0 0 20px;
   font-size: 16px;
-  -webkit-box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   color: #C4C4C4;
 }
@@ -96,32 +95,36 @@ body {
 .todo-add input {
   width: 100%;
   padding: 0 15px;
-  border: 1px solid #11253E;
+  margin: 0 5px 0 0;
+  border: 1px solid #C4C4C4;
   border-radius: 15px 0 0 15px;
+  -webkit-box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .todo-add input:focus {
-  outline: none;
+  border: 1px solid #11253E;
+  outline: 0;
 }
 
 .todo-add input::-webkit-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-add input::-moz-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-add input:-ms-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-add input::-ms-input-placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-add input::placeholder {
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-add input.active::-webkit-input-placeholder {
@@ -158,10 +161,12 @@ body {
 .todo-add button {
   max-width: 100px;
   width: 100%;
-  border: 1px solid #11253E;
+  margin: 0;
+  border: 1px solid #C4C4C4;
   border-radius: 0 15px 15px 0;
-  border-left: 0;
   background: ghostwhite;
+  -webkit-box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
@@ -169,13 +174,14 @@ body {
   -webkit-transition: 0.1s;
   -o-transition: 0.1s;
   transition: 0.1s;
-  background: lime;
+  border: 1px solid #11253E;
+  background: #FFE4DF;
 }
 
 .todo-list__item {
   position: relative;
   display: grid;
-  grid-template-columns: 10fr 0.5fr;
+  grid-template-columns: 0.3fr 10fr 0.5fr;
   grid-column-gap: 10px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -187,9 +193,21 @@ body {
   margin: 0 0 15px;
 }
 
-.todo-list__item input {
-  width: 17px;
-  height: 17px;
+.todo-list__item input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.todo-list__item input[type='checkbox']:checked {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
+.todo-list__item .done {
+  text-decoration: line-through;
+  color: #C4C4C4 !important;
 }
 
 .todo-list__item_label {
@@ -198,19 +216,20 @@ body {
 
 .todo-list__item_label p {
   font-size: 16px;
+  word-break: break-word;
   color: #11253E;
-  margin: 5px 0;
+  margin: 0 0 5px;
 }
 
 @media (max-width: 768px) {
   .todo-list__item_label p {
-    margin: 0 0 15px;
+    margin: 15px 0;
   }
 }
 
 .todo-list__item_label span {
   font-size: 12px;
-  color: #c4c4c4;
+  color: #C4C4C4;
 }
 
 .todo-list__item_remove {
@@ -253,7 +272,7 @@ body {
 }
 
 .todo-list__item_remove_confirm {
-  background: red;
+  background: tomato;
 }
 
 .todo-list__item_remove_cancel {
@@ -278,6 +297,30 @@ body {
     grid-template-columns: none;
     margin: 0 0 15px;
   }
+}
+
+.todo-counter {
+  margin: 0 0 25px;
+}
+
+.todo-counter span {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.todo-counter span:nth-child(1) {
+  background: #E4E8F9;
+  color: blue;
+}
+
+.todo-counter span:nth-child(2) {
+  background: #C4F3E1;
+  color: green;
+}
+
+.todo-counter span:nth-child(3) {
+  background: #FFE4DF;
+  color: tomato;
 }
 
 .hidden {
