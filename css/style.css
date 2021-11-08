@@ -178,6 +178,11 @@ body {
   background: #FFE4DF;
 }
 
+.todo-list {
+  overflow-y: auto;
+  height: calc(100vh - 30vh);
+}
+
 .todo-list__item {
   position: relative;
   display: grid;
@@ -297,6 +302,20 @@ body {
     grid-template-columns: none;
     margin: 0 0 15px;
   }
+}
+
+.todo-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+  background: lavenderblush;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+  background-color: #C4C4C4;
+  border-radius: 15px;
+  border: 8px solid lavenderblush;
 }
 
 .todo-counter {
