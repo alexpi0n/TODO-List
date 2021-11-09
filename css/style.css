@@ -345,3 +345,18 @@ body {
 .hidden {
   display: none;
 }
+
+noscript h2 {
+  position: absolute;
+  max-width: 500px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: #11253E;
+  border: 3px solid #C4C4C4;
+  border-radius: 20px;
+  padding: 20px;
+}
