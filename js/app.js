@@ -68,6 +68,7 @@ window.addEventListener("DOMContentLoaded", () => {
         confirm.addEventListener("click", () => {
             localStorage.removeItem(removeItem.dataset.remove);
             removeItem.parentElement.remove();
+
             todoCounter();
         });
 
@@ -83,6 +84,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const removeItemBtn = [...document.querySelectorAll(".todo-list__item_remove")].map(remove => {
             remove.addEventListener("click", function() {
                 this.classList.add("hidden");
+
                 renderRemoveControls(this);
             });
         });
