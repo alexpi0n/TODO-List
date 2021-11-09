@@ -259,3 +259,20 @@ body {
 .hidden {
     display: none;
 }
+
+noscript {
+    h2 {
+        position: absolute;
+        max-width: 500px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        color: $primary-color;
+        border: 3px solid $secondary-color;
+        border-radius: 20px;
+        padding: 20px;
+    }
+}
