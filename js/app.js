@@ -4,8 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const searchItem = document.querySelector("#search");
     const todoList = document.querySelector(".todo-list");
 
-    //render todo item
-
     function renderTodoItem(id, date, label, done) {
         todoList.innerHTML +=
             `<div id="${id}" class="todo-list__item">
@@ -20,8 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
         addRemoveListeners();
         addDoneListeners();
     };
-
-    //add new item
 
     function addItem() {
         const state = {
@@ -49,8 +45,6 @@ window.addEventListener("DOMContentLoaded", () => {
         addItem();
         todoCounter();
     });
-
-    //remove item
 
     function renderRemoveControls(removeItem) {
         removeItem.insertAdjacentHTML("afterend",
@@ -92,8 +86,6 @@ window.addEventListener("DOMContentLoaded", () => {
         return removeItemBtn;
     };
 
-    //toggle done status
-
     function addDoneListeners() {
         const checkbox = [...document.querySelectorAll("input[type='checkbox']")].map(item => {
             const label = item.nextElementSibling.querySelector("p");
@@ -121,8 +113,6 @@ window.addEventListener("DOMContentLoaded", () => {
         localStorage[item.dataset.checkbox] = JSON.stringify(status);
     };
 
-    //render todo list
-
     function renderTodoList() {
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -132,8 +122,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     };
     renderTodoList();
-
-    //search item
 
     searchItem.addEventListener("keyup", function() {
         const value = this.value.trim();
@@ -150,8 +138,6 @@ window.addEventListener("DOMContentLoaded", () => {
         return todoList;
     });
 
-    //show hide error
-
     function showError(error, errorMsg) {
         error.placeholder = errorMsg;
         error.classList.add("active");
@@ -161,8 +147,6 @@ window.addEventListener("DOMContentLoaded", () => {
             error.classList.remove("active");
         }, 1500);
     };
-
-    //todo counter
 
     function todoCounter() {
         const todoConnter = document.querySelector(".todo-counter");
