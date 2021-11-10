@@ -27,11 +27,11 @@ window.addEventListener("DOMContentLoaded", () => {
             done: false
         };
 
-        const { id, date, label } = state;
+        const { id, date, label, done } = state;
 
         if (label.length) {
             localStorage.setItem(id, JSON.stringify(state));
-            renderTodoItem(id, date, label);
+            renderTodoItem(id, date, label, done);
         } else {
             showError(addInput, "Oh, no.. You did not enter the task name");
         }
