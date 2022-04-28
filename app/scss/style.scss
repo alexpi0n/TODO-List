@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-$primary-color: #11253E;
+$primary-color: #044FA0;
 $secondary-color: #C4C4C4;
 $white-color: #FFF;
+$orange-color: #FF9B00;
+
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     background: lavenderblush;
 }
@@ -19,15 +21,26 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0 20px;
+
+        h1 {
+            text-transform: uppercase;
+            font-size: 40px;
+            color: $primary-color;
+
+            span {
+                color: $orange-color;
+            }
+        }
 
         input {
             max-width: 230px;
             width: 100%;
             height: 40px;
             padding: 0 15px;
-            border: 1px solid $secondary-color;
+            border: 0;
             border-radius: 15px;
-            box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 76, 158, 0.17);
 
             &:focus {
                 border: 1px solid $primary-color;
@@ -53,8 +66,9 @@ body {
         position: relative;
         display: flex;
         justify-content: center;
-        height: 40px;
-        margin: 0 0 20px;
+        height: 50px;
+        margin: 0 0 30px;
+        padding: 0 20px;
         font-size: 16px;
         border-radius: 15px;
         color: $secondary-color;
@@ -62,10 +76,11 @@ body {
         input {
             width: 100%;
             padding: 0 15px;
-            margin: 0 5px 0 0;
-            border: 1px solid $secondary-color;
+            margin: 0 10px 0 0;
+            font-size: 14px;
+            border: 0;
             border-radius: 15px 0 0 15px;
-            box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 76, 158, 0.17);
 
             &:focus {
                 border: 1px solid $primary-color;
@@ -75,6 +90,14 @@ body {
             &::placeholder {
                 color: $secondary-color;
             }
+
+            &:hover {
+                transition: 0.2s;
+
+                &::placeholder {
+                    color: $orange-color;
+                }
+            }
         }
 
         input.active::placeholder {
@@ -83,24 +106,29 @@ body {
         }
 
         button {
-            max-width: 100px;
+            max-width: 120px;
             width: 100%;
             margin: 0;
-            border: 1px solid $secondary-color;
+            border: 0;
             border-radius: 0 15px 15px 0;
             background: ghostwhite;
-            box-shadow: 4px 5px 10px rgba(0, 0, 0, 0.1);
+            color: $primary-color;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 3.8;
+            box-shadow: 0px 4px 10px rgba(0, 76, 158, 0.17);
             cursor: pointer;
 
             &:hover {
-                transition: 0.1s;
-                border: 1px solid $primary-color;
-                background: #FFE4DF;
+                transition: 0.2s;
+                background: $orange-color;
+                color: $white-color;
             }
         }
     }
 
     &-list {
+        padding: 0 20px;
         overflow-y: auto;
         height: calc(100vh - 30vh);
 
@@ -110,7 +138,7 @@ body {
             grid-template-columns: 0.3fr 10fr 0.5fr;
             grid-column-gap: 10px;
             align-items: center;
-            border: 1px solid $white-color;
+            box-shadow: 0px 4px 10px rgba(0, 76, 158, 0.17);
             background: $white-color;
             padding: 10px;
             border-radius: 15px;
@@ -185,17 +213,17 @@ body {
                     font-size: 14px;
                     color: $white-color;
                     border: 0;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     margin: 0 0 0 3px;
                     cursor: pointer;
                 }
 
                 &_confirm {
-                    background: tomato;
+                    background: $orange-color;
                 }
 
                 &_cancel {
-                    background: blue;
+                    background: $primary-color;
                 }
 
                 &:hover {
@@ -206,7 +234,6 @@ body {
             &:hover {
                 transition: 0.1s;
                 background: ghostwhite;
-                border: 1px solid $primary-color;
                 border-radius: 15px;
             }
 
@@ -233,6 +260,7 @@ body {
 
     &-counter {
         margin: 0 0 25px;
+        padding: 0 20px;
 
         span {
             padding: 5px 10px;

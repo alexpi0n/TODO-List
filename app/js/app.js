@@ -129,6 +129,8 @@ window.addEventListener("DOMContentLoaded", () => {
             if (value.length) {
                 if (item.innerText.search(value) == -1) {
                     item.classList.add("hidden");
+                } else {
+                    item.classList.remove("hidden");
                 }
             } else {
                 item.classList.remove("hidden");
